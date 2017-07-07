@@ -10,16 +10,19 @@ $(document).ready( function(){
      url: endPoint,
      dataType: 'json',
      data: $("form").serialize(),
-     success: onSuccess
+     success: on  Success
    });
  });
 });
 
-
+//this function takes the JSON data returned from the server, which is a variable named 'json'. The variable could be named anything.
 function onSuccess(json) {
   /*if (json.pagination.offset === 0) {
     $(".gif-img").remove();
   }*/
+console.log(json);// list data
+
+//for the json data or the data that came back from the server,
   json.data.forEach(function(v,i){
     $(".gif-gallery").append($("<img class='img-responsive img-thumbnail gif-img' src="+v.images.fixed_height.url+">"));
   });
